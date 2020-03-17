@@ -1,18 +1,23 @@
 'use strict';
-const userModel = require('../models/catModel.js');
+const userModel = require('../models/userModel.js');
 
-const users = userModel.users;
-
-const user_list_get = (req, res) => {
+const user_list_get = async (req, res) => {
+  const users = await userModel.getAllUsers();
   res.json(users);
 };
 
-const user_get = (req, res) => {
-    let filteredUser = users.filter(val => req.params.id == val.id)
-    res.json(filteredUser)
+const user_get = async (req, res) => {
+  const users = await userModel.getUser(req.params.id);
+  res.json(users);
+}
+
+const user_create_post = async (req, res) => {
+  const users = await userModel.addUser(req.body);
+  res.json(users);
 }
    
 module.exports = {
   user_list_get,
-  user_get
+  user_get,
+  user_create_post
 };
