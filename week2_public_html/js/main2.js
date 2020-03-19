@@ -126,7 +126,6 @@ addForm.addEventListener('submit', async (evt) => {
     method: 'POST',
     body: fd,
   };
-  console.log(fd.values)
   const response = await fetch(url + '/cat', fetchOptions);
   const json = await response.json();
   console.log('add response', json);
