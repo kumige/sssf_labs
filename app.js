@@ -9,6 +9,7 @@ let authRoutes = require('./routes/authRouter.js')
 const app = express();
 const port = 3000;
 
+
 const loggedIn = (req, res, next) => {
   if (req.user) {
     next();
