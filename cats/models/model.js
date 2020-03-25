@@ -7,7 +7,8 @@ const catSchema = new Schema({
   age: Number,
   gender: ['male', 'female'],
   color: String,
-  weight: Number
+  weight: Number,
+  
 });
 
 module.exports = mongoose.model('Cat', catSchema);

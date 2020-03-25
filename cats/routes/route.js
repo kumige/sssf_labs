@@ -16,7 +16,7 @@ router
   })
   .get(async (req, res) => {
     console.log("empty")
-    res.send(await blog.find({ age: { $gte: Number.parseInt(req.params.age) }}));
+    res.send(await blog.find().populate('owner'));
   });
 
 router.route("/asd").get(async (req, res) => {
