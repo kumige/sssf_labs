@@ -1,6 +1,7 @@
 // https://docs.mongodb.com/manual/core/2dsphere/
 
 const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
 
 const Schema = mongoose.Schema;
 

@@ -8,6 +8,10 @@ router.get('/', stationController.station_list_get);
 
 router.get('/:id', stationController.station_get);
 
+router.patch('/:id', stationController.station_modify);
+
+router.delete('/:id', stationController.station_delete);
+
 router.post('/', stationController.station_post);
 
 module.exports = router;
