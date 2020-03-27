@@ -44,7 +44,22 @@ const station_list_get = async (req, res) => {
 
 const station_get = async (req, res) => {
   try {
-    res.json(await stationModel.findById(req.params.id));
+    res.json(
+      await stationModel
+        .findById(req.params.id)
+        .populate({
+          path: "Connections",
+          populate: { path: "ConnectionTypeID" }
+        })
+        .populate({
+          path: "Connections",
+          populate: { path: "LevelID" }
+        })
+        .populate({
+          path: "Connections",
+          populate: { path: "CurrentTypeID" }
+        })
+    );
   } catch (error) {
     res.status(500).json({ message: error.message });
     console.error("station_list_get", error);
@@ -73,7 +88,10 @@ const station_post = async (req, res) => {
 
 const station_modify = async (req, res) => {
   try {
-    const station = await stationModel.findByIdAndUpdate(req.params.id, req.query);
+    const station = await stationModel.findByIdAndUpdate(
+      req.params.id,
+      req.query
+    );
     res.send(`modified station ${station.Title} with id ${station._id}`);
   } catch (error) {
     res.status(500).json({ message: error.message });
