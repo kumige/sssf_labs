@@ -1,3 +1,5 @@
+.idea
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
@@ -55,12 +57,6 @@ typings/
 # Optional eslint cache
 .eslintcache
 
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
 # Optional REPL history
 .node_repl_history
 
@@ -77,18 +73,11 @@ typings/
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
-# Next.js build output
+# next.js build output
 .next
 
-# Nuxt.js build / generate output
+# nuxt.js build output
 .nuxt
-dist
-
-# Gatsby files
-.cache/
-# Comment in the public line in if your project uses Gatsby and *not* Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
 
 # vuepress build output
 .vuepress/dist
@@ -101,9 +90,6 @@ dist
 
 # DynamoDB Local files
 .dynamodb/
-
-# TernJS port file
-.tern-port
 
 ### macOS template
 # General
@@ -132,12 +118,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-### Example user template template
-### Example user template
-
-# IntelliJ project files
-.idea
-*.iml
-out
-gen
