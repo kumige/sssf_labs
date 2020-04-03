@@ -156,13 +156,14 @@ const connectionInputType = new GraphQLInputObjectType({
   name: "connectionsinput",
   description: "defines connection input",
   fields: () => ({
+    id: { type: GraphQLID },
     ConnectionTypeID: {
       type: GraphQLID
     },
-    CurrentTypeID: {
+    LevelID: {
       type: GraphQLID
     },
-    LevelID: {
+    CurrentTypeID: {
       type: GraphQLID
     },
     Quantity: { type: GraphQLInt }
@@ -173,7 +174,7 @@ const stationInputType = new GraphQLInputObjectType({
   name: "addstation",
   description: "Add a new station",
   fields: () => ({
-    Connections: { type: new GraphQLList(connectionInputType) },
+    Connections: { type: GraphQLID },
     Title: { type: GraphQLString },
     AddressLine1: { type: GraphQLString },
     Town: { type: GraphQLString },
@@ -208,24 +209,38 @@ const Mutation = new GraphQLObjectType({
         const newStation = new station(args.input);
         return await newStation.save();
       }
-    }
-    /*modifyAnimal: {
-      type: animalType,
-      description: "Modify animals",
+    },
+    modifyStation: {
+      type: stationType,
+      description: "Modify stations",
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
-        animalName: { type: GraphQLString },
-        species: { type: GraphQLID }
+        input: { type: stationInputType }
       },
       resolve: async (parent, args, { req, res, checkAuth }) => {
         try {
-          checkAuth(req, res); // add to every resolve that needs authentication
-          return await animal.findByIdAndUpdate(args.id, args, { new: true });
+          //checkAuth(req, res);  add to every resolve that needs authentication
+          return await station.findByIdAndUpdate(args.id, args.input, { new: true });
         } catch (error) {
           return new Error(error);
         }
       }
-    }*/
+    },
+    deleteStation: {
+      type: stationType,
+      description: "Delete a station",
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      resolve: async (parent, args, { req, res, checkAuth }) => {
+        try {
+          //checkAuth(req, res);  add to every resolve that needs authentication
+          return await station.findByIdAndDelete(args.id);
+        } catch (error) {
+          return new Error(error);
+        }
+      }
+    }
   }
 });
 
