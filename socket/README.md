@@ -1,3 +1,8 @@
-# socket.io-demo
+### socket.io namespaces
 
-Adapted from [Socket.IO introduction](https://socket.io/get-started/chat/) (did not found licence (assume MIT), original author Guillermo Rauch).
+Socket.io namespaces are different 'paths' to differentiate communication channels. Each namespace can have different rooms to divide connections even further.
+
+
+### sockets in my <a href="https://github.com/kumige/snoop/projects/1">project<a>
+
+Sockets could be used to give users real time notifications about new questions
