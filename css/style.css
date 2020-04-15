@@ -1,0 +1,39 @@
+body {
+  font-family: 'cantarellregular';
+  
+}
+
+/* Make content area fill the entire browser window */
+html,
+.fullscreen {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-image: url("../images/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+/* Center the content in the browser window */
+.container {
+  margin: auto;
+  text-align: center;
+  
+}
+
+.title {
+  font-size: 3rem;
+}
+
+@font-face {
+    font-family: 'cantarellregular';
+    src: url('Cantarell-Regular-webfont.eot');
+    src: url('../fonts/Cantarell-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
