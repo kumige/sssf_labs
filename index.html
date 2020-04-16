@@ -1,65 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Hello World</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="./manifest.json" />
-    <meta name="theme-color" content="white" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="images/hello-icon-152.png" />
-    <meta name="theme-color" content="white" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Hello World" />
-    <meta name="msapplication-TileImage" content="images/hello-icon-144.png" />
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <link rel="stylesheet" href="css/all.css">
-  </head>
-  <body class="fullscreen">
-    <div class="container">
-       <i class="fa fa-car" style="font-size:48px;"></i>
-
-      <h1 class="title">Hello World!</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-        pharetra nulla quis mauris mattis fringilla. Etiam elit sem, mattis sit
-        amet suscipit ut, tristique in odio. Duis at tincidunt nisl. Vivamus
-        ornare vitae turpis eu placerat. Morbi volutpat interdum ligula sit amet
-        scelerisque. Sed nec velit viverra, pulvinar urna id, aliquam tellus.
-        Suspendisse arcu nibh, rhoncus vel fringilla et, bibendum vel augue.
-        Donec nec nunc placerat, ultrices nisi ac, venenatis ipsum. Quisque
-        facilisis laoreet posuere. Praesent et quam at dolor placerat porta. Sed
-        a bibendum risus. Sed suscipit cursus nisl nec dapibus. Cras nisl orci,
-        mattis et enim quis, vehicula vestibulum lorem. Sed lobortis lobortis
-        iaculis.
-      </p>
-      <p>
-        Pellentesque magna dui, rutrum id orci eget, sollicitudin mattis leo.
-        Sed efficitur tortor urna, id rutrum ex varius porta. Curabitur leo
-        turpis, pharetra vitae tortor ac, ullamcorper egestas risus. Integer ac
-        velit quis lorem suscipit dignissim. Donec rhoncus eros in malesuada
-        aliquam. Nunc rhoncus dolor nibh, ac suscipit enim eleifend non. Proin
-        porttitor risus condimentum tempus venenatis. Vivamus at feugiat quam,
-        non lacinia sem. Sed egestas, quam at tincidunt porttitor, orci elit
-        feugiat nisl, sed aliquet felis justo eu enim. Aliquam et tellus leo.
-        Donec gravida, ligula a laoreet condimentum, erat enim consequat ante,
-        vitae convallis urna ante sit amet eros. Nulla facilisi.
-      </p>
-      <p>
-        Morbi vel viverra justo, quis tempus neque. Fusce aliquam metus augue,
-        sit amet dictum odio tempor euismod. Aenean vitae viverra enim, maximus
-        vulputate felis. Sed ullamcorper laoreet pellentesque. Praesent ut
-        dignissim massa, a mollis ex. Quisque vestibulum a massa eu ultricies.
-        Pellentesque habitant morbi tristique senectus et netus et malesuada
-        fames ac turpis egestas. Nullam vitae eros neque. Cras sagittis aliquet
-        odio, eget feugiat turpis mollis sit amet. Sed enim mi, rutrum ut
-        laoreet vitae, facilisis quis velit. Etiam volutpat libero in tortor
-        ullamcorper dictum. Quisque non rutrum purus, et feugiat augue.
-      </p>
-      
-    </div>
-    <script src="js/main.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Hello World</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="white"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="apple-touch-icon" href="images/hello-icon-152.png">
+  <meta name="theme-color" content="white"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Hello World">
+  <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+<body class="fullscreen">
+<div class="container">
+  <h1 class="title">Hello World!</h1>
+  <form>
+    <input type="text" name="greeting" placeholder="type greeting">
+    <button type="submit">Send</button>
+  </form>
+  <div class="greetings">
+    <button id="refresh">Refresh</button>
+    <ul></ul>
+  </div>
+</div>
+<script src="js/fetchGQL.js"></script>
+<script src="js/idb.js"></script>
+<script src="js/main.js"></script>
+</body>
 </html>

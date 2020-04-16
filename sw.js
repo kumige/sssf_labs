@@ -1,45 +1,61 @@
-var cacheName = "hello-pwa";
-var filesToCache = [
-  "/",
+"use strict";
+self.importScripts("./js/fetchGQL.js");
+self.importScripts("./js/idb.js");
+const cacheName = "hello-pwa";
+const filesToCache = [
+  "./",
   "./index.html",
+  "./favicon.ico",
   "./css/style.css",
   "./js/main.js",
-  "./fonts/Cantarell-Regular-webfont.woff",
-  "./images/bg.png",
-  "./css/all.css",
-  './webfonts/fa-solid-900.eot',
-  './webfonts/fa-solid-900.woff2',
-  './webfonts/fa-solid-900.woff',
-  './webfonts/fa-solid-900.ttf',
-  './webfonts/fa-solid-900.svg',
-  './webfonts/fa-regular-400.eot',
-  './webfonts/fa-regular-400.woff2',
-  './webfonts/fa-regular-400.woff',
-  './webfonts/fa-regular-400.ttf',
-  './webfonts/fa-regular-400.svg',
-  './webfonts/fa-brands-400.eot',
-  './webfonts/fa-brands-400.woff2',
-  './webfonts/fa-brands-400.woff',
-  './webfonts/fa-brands-400.ttf',
-  './webfonts/fa-brands-400.svg',
-
+  "./js/idb.js",
+  "./images/pwa.png",
 ];
 
 /* Start the service worker and cache all of the app's content */
 self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open(cacheName).then((cache) => {
-      return cache.addAll(filesToCache);
-    })
+    (async () => {
+      try {
+        const cache = await caches.open(cacheName);
+        // console.log(cache);
+        return cache.addAll(filesToCache);
+      } catch (e) {
+        console.log("after install", e.message);
+      }
+    })()
   );
 });
 
 /* Serve cached content when offline */
 self.addEventListener("fetch", (e) => {
-    console.log("You fetched " + e.url)
+  // console.log(e.request);
   e.respondWith(
-    caches.match(e.request).then((response) => {
-      return response || fetch(e.request);
-    })
+    (async () => {
+      try {
+        const response = await caches.match(e.request);
+        // console.log('resp', response);
+        return response || fetch(e.request);
+      } catch (e) {
+        console.log("load cache", e.message);
+      }
+    })()
   );
 });
+
+self.addEventListener("sync", (event) => {
+  if (event.tag == "send-message") {
+    event.waitUntil(sendToServer());
+  }
+});
+
+const sendToServer = async () => {
+  try {
+    const outbox = await loadData("outbox");
+    const sentMessages = await Promise.all(outbox.map(async (message) => await saveGreeting(message)))
+    console.log(sentMessages)
+    clearData('outbox')
+  } catch (e) {
+    console.log(e.message);
+  }
+};
