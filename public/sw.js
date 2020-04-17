@@ -1,15 +1,24 @@
 "use strict";
-self.importScripts("./js/fetchGQL.js");
-self.importScripts("./js/idb.js");
-const cacheName = "hello-pwa";
+const cacheName = "chargemap-pwa";
 const filesToCache = [
   "./",
   "./index.html",
-  "./favicon.ico",
   "./css/style.css",
-  "./js/main.js",
-  "./js/idb.js",
-  "./images/pwa.png",
+  "./js/example.js",
+  "./img/icon.png",
+  "./img/logo.svg",
+  "./img/splash.png",
+  "./modules/leaflet/dist/leaflet.js",
+  "./modules/esri-leaflet/dist/esri-leaflet.js",
+  "./modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js",
+  "./modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css",
+  "./modules/leaflet/dist/leaflet.css",
+  "./modules/@fortawesome/fontawesome-free/css/all.min.css",
+  "./modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2",
+  "./modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff",
+  "./modules/leaflet/dist/images/marker-icon.png",
+  "./modules/leaflet/dist/images/marker-shadow.png",
+  "./modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"
 ];
 
 /* Start the service worker and cache all of the app's content */
@@ -42,7 +51,7 @@ self.addEventListener("fetch", (e) => {
     })()
   );
 });
-
+/*
 self.addEventListener("sync", (event) => {
   if (event.tag == "send-message") {
     event.waitUntil(sendToServer());
@@ -59,3 +68,4 @@ const sendToServer = async () => {
     console.log(e.message);
   }
 };
+*/
